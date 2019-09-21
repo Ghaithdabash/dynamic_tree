@@ -1,2 +1,0 @@
-production:
-  URl: <%= ENV.delete("DATABASE_URL") %>
