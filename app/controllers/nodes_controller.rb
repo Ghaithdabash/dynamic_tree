@@ -36,7 +36,7 @@ class NodesController < ApplicationController
     response_hash = if @found == true
       {status: 'success', parents: @kids}
     else
-      {status: 'node id not found', parents: []}
+      {status: 'node id not found', children: []}
     end
     render json: response_hash
   end
