@@ -9,6 +9,8 @@ gem 'rails', '~> 6.0.0'
 gem 'puma', '~> 3.11'
 gem 'redis'
 gem 'redis-namespace'
+gem 'pg'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
