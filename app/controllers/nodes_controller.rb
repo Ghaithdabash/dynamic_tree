@@ -23,14 +23,22 @@ class NodesController < ApplicationController
 
   def parents
     parse_tree(JSON.parse($redis.get('tree')), params[:id].to_i)
-    status = @found == true ? 'success' : 'Node id not found'
-    render json: {status: status, parents: @visited_ids}
+    response_hash = if @found == true
+      {status: 'success', parents: @visited_ids}
+    else
+      {status: 'node id not found', parents: []}
+    end
+    render json: response_hash
   end
 
   def children
     parse_tree(JSON.parse($redis.get('tree')), params[:id].to_i)
-    status = @found == true ? 'success' : 'Node id not found'
-    render json: {status: status, kids: @kids}
+    response_hash = if @found == true
+      {status: 'success', parents: @kids}
+    else
+      {status: 'node id not found', parents: []}
+    end
+    render json: response_hash
   end
 
   private
